@@ -1,37 +1,45 @@
-/*The Player then checks for a Option. They are No Play,
-Ladder or Snake. - Use ((RANDOM)) to check for Options - In Case of No Play the player stays in the same
-position
-- In Case of Ladder the player moves ahead by the number of position received in the die
-- In Case of Snake the player moves behind*/
+/*Repeat till the Player reaches the winning position 100.
+ - Note In case the player position moves below 0, then the player restarts from 0*/
 
-package SnakeAndLadder;
-public class CheckOption {
+package com.bridgelabz.com;
+
+public class WinningPosition {
     public static void main(String[] args) {
+
+        System.out.println("Player initial Position is: ");
+
         int position = 0;
 
-        int dice = (int) Math.floor(Math.random() * 10) % 6 + 1;
-        System.out.println("DiceNumber is : " + dice);
+        while (position < 100) {
 
-        int option = (int) Math.floor(Math.random() * 10) % 3;
-        System.out.print("Player option is : ");
+            int dice = (int) Math.floor(Math.random() * 10) % 6 + 1;
+            System.out.println("diceNumber is : " + dice);
 
-        switch (option) {
-            case 0:
-                position += dice;
-                System.out.println("Ladder");
-                System.out.println("Position of the player after the ladder is : " + position);
-                break;
+            int option = (int) Math.floor(Math.random() * 10) % 3;
+            System.out.println("selected player option : " + option);
 
-            case 1:
-                position -=  dice;
-                System.out.println("Snake");
-                System.out.println("Position of the player after the Snake is : " + position);
-                break;
+            switch (option) {
+                case 0:
+                    position += dice;
+                    System.out.println("Ladder");
+                    System.out.println("position for the player after the ladder is : " + position);
+                    break;
 
-            case 2:
-                System.out.println("No play");
-                System.out.println("Position of the player remains same");
-                break;
+                case 1:
+                    position -=  dice;
+                    System.out.println("Snake");
+                    if (position < 0) {
+                        position = 0;
+                        System.out.println("Player restart from zero: ");
+                    }
+                    System.out.println("position for the player after the Snake is : " + position);
+                    break;
+
+                case 2:
+                    System.out.println("No play");
+                    System.out.println("Position of the player remains same");
+                    break;
+            }
         }
     }
 }
