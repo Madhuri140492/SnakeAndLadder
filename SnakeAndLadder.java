@@ -1,7 +1,6 @@
 package SnakeAndLadder;
 /*The Player rolls the die to get a number between 1 to 6. - Use ((RANDOM)) to get the
 number between 1 to 6*/
-
 public class RollsTheDie {
     public static void main(String[] args) {
         RollsTheDie a = new RollsTheDie();
