@@ -1,16 +1,15 @@
-/*Ensure the player gets to exact winning position 100. - Note in case the player position go above
-100, the player stays in the same previous position till the player gets the exact
-number that adds to 100 */
+/*Report the number of times the dice was played to win the game
+and also the position after every die role*/
 
 package com.bridgelabz.com;
 
-public class ExactPosition {
+public class DiceCount {
     public static void main(String[] args) {
         System.out.println("Player Exact Winning Position is: ");
 
         int EXACT_POSITION = 100;
         int position = 0;
-
+        int count = 0;
         while (position < EXACT_POSITION) {
 
 
@@ -45,6 +44,9 @@ public class ExactPosition {
                     System.out.println("Position of the player remains same");
                     break;
             }
+            count++;
+            System.out.println("The number of times dicerolled : " + count);
         }
+
     }
 }
